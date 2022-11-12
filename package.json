@@ -1,0 +1,15 @@
+{
+  "name": "price-formatter",
+  "version": "1.0.0",
+  "description": "A simple price formatter library.",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "git@github.com:astopo/price-formatter.git",
+  "author": "Amy Soetopo <amy.soetopo@gmail.com>"
+}
