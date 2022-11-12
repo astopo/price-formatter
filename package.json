@@ -1,5 +1,5 @@
 {
-  "name": "price-formatter",
+  "name": "@astopo/price-formatter",
   "version": "1.0.0",
   "description": "A simple price formatter library.",
   "main": "index.js",
@@ -10,6 +10,17 @@
   "scripts": {
     "build": "tsc"
   },
-  "repository": "git@github.com:astopo/price-formatter.git",
-  "author": "Amy Soetopo <amy.soetopo@gmail.com>"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/astopo/price-formatter.git"
+  },
+  "author": "Amy Soetopo <amy.soetopo@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/astopo/price-formatter/issues"
+  },
+  "homepage": "https://github.com/astopo/price-formatter#readme",
+  "keywords": [
+    "format",
+    "price"
+  ]
 }
