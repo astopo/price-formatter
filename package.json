@@ -1,6 +1,6 @@
 {
   "name": "@astopo/price-formatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple price formatter library.",
   "main": "index.js",
   "license": "MIT",
