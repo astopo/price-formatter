@@ -5,19 +5,19 @@ A simple library for formatting prices.
 ## Installation
 
 ```
-npm install price-formatter
+npm install @astopo/price-formatter
 ```
 
 or
 
 ```
-yarn add price-formatter
+yarn add @astopo/price-formatter
 ```
 
 ## Usage
 
 ```
-import { format } from '.';
+import { format } from '@astopo/price-formatter';
 
 format(1);
 // returns $0.01;
