@@ -29,5 +29,12 @@ exports.CURRENCIES = {
         delimiter: ',',
         decimalSymbol: '.',
         decimals: 2
+    },
+    MXN: {
+        symbol: '$',
+        isPrefix: true,
+        delimiter: ',',
+        decimalSymbol: '.',
+        decimals: 2
     }
 };
