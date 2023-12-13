@@ -11,22 +11,24 @@ const DEFAULT_OPTIONS: PriceFormatOptions = {
 export function format(price: number|string, options: PriceFormatOptions = DEFAULT_OPTIONS) {
   const { currency: currencyKey } = options;
   const currency = CURRENCIES[currencyKey];
-  // TODO: handle NaN
+  if (isNaN(Number(price))) throw new Error('Invalid number.');
 
   const priceString = String(price);
+  const priceNum = Number(priceString);
 
-  const decimals = priceString.substring(priceString.length - currency.decimals);
-
-  if (priceString.length < currency.decimals) {
-    // TODO - handle leading 0's on decimals.
+  if (priceNum === 0) {
+    return currency.zeroValue;
   }
+
+  const decimalValue = priceString.substring(priceString.length - currency.decimals);
+  // Handle leading 0s on decimal value.
+  const decimals = priceString.length < currency.decimals ? `0${decimalValue}` : decimalValue;
 
   const rest = priceString.substring(0, priceString.length - currency.decimals) || '0';
   const reversed = rest.split('').reverse().join('');
   const matches = reversed.match(/.{1,3}/g);
   const finalRest = matches?.map(item => item.split('').reverse().join('')).reverse().join(currency.delimiter);
 
-  // const formattedPrice: string = priceString.substring(0, priceString.length-currency.decimals) + "." + priceString.substring(priceString.length-currency.decimals);
   const formattedPrice: string = `${finalRest}${currency.decimalSymbol}${decimals}`;
 
   const symbol = currency.symbol;

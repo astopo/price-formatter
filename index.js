@@ -8,21 +8,26 @@ const DEFAULT_OPTIONS = {
 function format(price, options = DEFAULT_OPTIONS) {
     const { currency: currencyKey } = options;
     const currency = currencies_1.CURRENCIES[currencyKey];
-    // TODO: handle NaN
+    if (isNaN(Number(price)))
+        throw new Error('Invalid number.');
     const priceString = String(price);
-    const decimals = priceString.substring(priceString.length - currency.decimals);
-    if (priceString.length < currency.decimals) {
-        // TODO - handle leading 0's on decimals.
+    const priceNum = Number(priceString);
+    if (priceNum === 0) {
+        return currency.zeroValue;
     }
+    const decimalValue = priceString.substring(priceString.length - currency.decimals);
+    console.log('decimalValue', decimalValue);
+    console.log('priceString.length < currency.decimals', priceString.length < currency.decimals);
+    // Handle leading 0s on decimal value.
+    const decimals = priceString.length < currency.decimals ? `0${decimalValue}` : decimalValue;
     const rest = priceString.substring(0, priceString.length - currency.decimals) || '0';
     const reversed = rest.split('').reverse().join('');
     const matches = reversed.match(/.{1,3}/g);
     const finalRest = matches === null || matches === void 0 ? void 0 : matches.map(item => item.split('').reverse().join('')).reverse().join(currency.delimiter);
-    // const formattedPrice: string = priceString.substring(0, priceString.length-currency.decimals) + "." + priceString.substring(priceString.length-currency.decimals);
     const formattedPrice = `${finalRest}${currency.decimalSymbol}${decimals}`;
     const symbol = currency.symbol;
     const prefix = currency.isPrefix ? symbol : '';
     const suffix = !currency.isPrefix ? symbol : '';
-    return `${prefix}${''}${formattedPrice}${suffix}`;
+    return `${prefix}${formattedPrice}${suffix}`;
 }
 exports.format = format;

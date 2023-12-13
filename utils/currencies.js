@@ -7,21 +7,24 @@ exports.CURRENCIES = {
         isPrefix: true,
         delimiter: ',',
         decimalSymbol: '.',
-        decimals: 2
+        decimals: 2,
+        zeroValue: '$0.00'
     },
     CAD: {
         symbol: '$',
         isPrefix: true,
         delimiter: ',',
         decimalSymbol: '.',
-        decimals: 2
+        decimals: 2,
+        zeroValue: '$0.00'
     },
     EUR: {
         symbol: '€',
         isPrefix: false,
         delimiter: '.',
         decimalSymbol: ',',
-        decimals: 2
+        decimals: 2,
+        zeroValue: '0,00€'
     },
     GBP: {
         symbol: '£',
@@ -35,6 +38,7 @@ exports.CURRENCIES = {
         isPrefix: true,
         delimiter: ',',
         decimalSymbol: '.',
-        decimals: 2
+        decimals: 2,
+        zeroValue: '$0.00'
     }
 };

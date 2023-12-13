@@ -1,5 +1,6 @@
 import { format } from '.';
 
+console.log('should be $0.00', format(0));
 console.log('should be $0.01', format(1));
 console.log('should be $0.10', format(10));
 console.log('should be $10.00', format(1000));
