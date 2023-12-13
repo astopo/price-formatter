@@ -16,8 +16,6 @@ function format(price, options = DEFAULT_OPTIONS) {
         return currency.zeroValue;
     }
     const decimalValue = priceString.substring(priceString.length - currency.decimals);
-    console.log('decimalValue', decimalValue);
-    console.log('priceString.length < currency.decimals', priceString.length < currency.decimals);
     // Handle leading 0s on decimal value.
     const decimals = priceString.length < currency.decimals ? `0${decimalValue}` : decimalValue;
     const rest = priceString.substring(0, priceString.length - currency.decimals) || '0';

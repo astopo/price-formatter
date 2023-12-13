@@ -31,7 +31,8 @@ exports.CURRENCIES = {
         isPrefix: true,
         delimiter: ',',
         decimalSymbol: '.',
-        decimals: 2
+        decimals: 2,
+        zeroValue: '0.00£'
     },
     MXN: {
         symbol: '$',
